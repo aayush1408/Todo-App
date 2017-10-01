@@ -1,0 +1,16 @@
+<div class="container">
+<button ng-click=" order='task' " class="btn btn-sm btn-warning ">Order By Task</button>
+    <button ng-click=" order='date' " class="btn btn-sm btn-success" style="float: right;">Order By Date</button><br><br>
+    <input type="text" name="" ng-model="job" class="form-control" placeholder="Search..."><br>
+<ul style="list-style: none;>
+    <li " ng-repeat="task in tasks | orderBy : order | filter : job " ng-hide="task.done" class="list-group" ng-class-odd="'striped'">{{task.task}}-{{task.date}}<button ng-click="removeit(task)" class="btn btn-xs btn-danger" style="float: right">Done</button></li>
+
+</ul>
+</div>
+<div class="container">
+    <form ng-submit="addtask()" class="form-group">
+        <input type="text" ng-model="newtask" placeholder="Enter the new task.." class="form-control"><br>
+        <input type="text" ng-model="newdate" placeholder="DD:MM:YYYY" class="form-control"><br>
+        <input type="submit"  value="Add tasks" class="btn btn-md btn-primary ">
+    </form>
+</div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+  </head>
+  <body>
+    <div class="container">
+        <div class="page-header" id="title">
+            
+                <h1>To-Do list</h1>
+            
+        </div>
+    </div>
+    <div class="container">        
+        <h4 class="sm-heading">Welcome to To-Do List</h4><br>
+    
+        <form action="/addtask" method="post" class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" id="sizing-addon3" placeholder="Username.."><br>
+            <label>Enter your task</label>
+            <input type="text" name="todo" id="sizing-addon2" class="form-control" placeholder="Enter your taks.."><br>
+            <label>Last Date</label>
+            <input type="text" name="edate" placeholder="MM-DD-YYYY" class="form-control"><br>
+            <input type="submit" value="Save" class="btn btn-md btn-primary">
+        </form>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h2 id="task-heading">Tasks</h2>
+        </div>
+    </div>
+     <div class="container">
+
+        <% for(var i=0;i< result.length;i++){ %>
+         <div class="container" id="tasks">
+            <br><br>
+            <h3><%= result[i].date %></h3>
+            <h4><%= result[i].username %></h4>
+            <h5><%= result[i].todo %></h5>
+            <% if(result[i].isDone){ %>
+            <p class="completed">Completed</p>
+            <% } %>
+            <% if(!result[i].isDone && result[i].fdate<=result[i].edate){ %>
+            <p class="yet">Yet to be completed</p>
+            <p>Last date of completion <%=result[i].edate %></p>
+            <% } %>
+            <%  if (result[i].fdate === result[i].edate) { %>
+            <p class="warning">Last day!!</p>
+            <% } %>
+            <% if (result[i].edate < result[i].fdate){ %>
+            <p class="expired">Expired!!!</p>
+            <% } %>
+            <a href='/edit/<%= result[i]._id %>'><button class="btn btn-xs btn-warning">Edit</button></a>
+            <a href='/delete/<%= result[i]._id %>'><button class="btn btn-xs btn-danger">Delete</button></a>
+          </div>
+          <br>
+        <%}%>
+        </div>
+            
+
+  </body>
+</html>

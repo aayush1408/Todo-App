@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h2>Edit the task</h2>
+        </div>
+    
+
+    <form action="/edittask/<%= result[0]._id %>" method="post" class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" value="<%= result[0].username %>"><br>
+        <label>Edit your task</label>
+        <input type="text" name="todo" value="<%= result[0].todo %>" class="form-control"><br>
+        <label>Status</label>
+        <select name="status" class="form-control">
+            <option disabled="disabled" selected="selected">Your Status</option>
+            <option value="true">Completed</option>
+            <option value="false">Incomplete</option>
+        </select><br>
+        <label>Last Date:</label>
+        <input type="text" name="edate" class="form-control" value="<%= result[0].edate %>"><br>
+        <input type="submit" name="" value="Edit" class="btn btn-lg btn-success">
+    </form>
+
+</body>
+</html>

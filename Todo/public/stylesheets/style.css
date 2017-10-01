@@ -1,0 +1,39 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#tasks{
+    background:#f7f7f7;
+}
+.expired{
+    background-color: #FF7F7F;
+}
+.warning{
+    background-color: #ffff99;
+}
+.yet{
+ background-color: #00d2ff;
+}
+.completed{
+    background-color:#7cff00;
+}
+.sm-heading{
+    
+    text-decoration: underline;
+    text-align:center; 
+}
+#title{
+    text-align: center;
+    margin-top: -20px;
+    font-family: monospace;
+    
+}
+#task-heading{
+   
+    text-decoration: underline;
+}
+
